@@ -45,6 +45,10 @@ scoring_cards = SCORING_CARDS.to_a.sample(2)
 base_projects = BASE_CPS.to_a.sample(4)
 actions = ACTIONS.shuffle
 
+# Todo
+# 5/8 cp bonus
+# Map
+
 puts "[Starting hand](#{generate_link(starting_hand)})"
 puts "- #{generate_names(starting_hand).join(", ")}"
 puts ""
