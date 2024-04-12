@@ -72,9 +72,10 @@ bonus_tiles = BONUS_TILES.sample(4)
 card_slots = (1..4).map { |n| [n, ACTIONS.shuffle.join(" | ")] }.to_h
 
 #  Hi everyone! The Starting hand of the week is a popular post on r/TerraformingMarsGame, so decided to try it out over here. If this becomes popular, I'll make it a regular weekly thing. Any feedback and comments are appreciated!
-
-#puts "[Map](https://raw.githubusercontent.com/agentshowers/arknova/main/maps/#{map+1}.png)"
-puts "Map"
+# puts "---"
+puts "### Setup"
+puts ""
+puts "[Map](https://raw.githubusercontent.com/agentshowers/arknova/main/maps/#{map+1}.png)"
 puts "- #{MAPS[map]}"
 puts ""
 puts "[Starting hand](#{generate_link(starting_hand)})"
@@ -93,19 +94,22 @@ puts "Conservation Bonus"
 puts "- **5 CP**: #{bonus_tiles[0]} / #{bonus_tiles[1]}"
 puts "- **8 CP**: #{bonus_tiles[2]} / #{bonus_tiles[3]}"
 puts ""
-
+puts "---"
+puts
+puts "### Player order and card slots"
+puts ""
 (1..4).each do |player_count|
-  order = (1..player_count).to_a.sample
+  order = (1..player_count).to_a.shuffle
   if player_count == 1
     puts "Solo"
   else
-    puts "#{player_count} players"
+    puts "#{player_count} players (#{ordinalize(order.index(1) + 1)})"
   end
-  (1..player_count).to_a.shuffle.each_with_index do |n, i|
+  order.each_with_index do |n, i|
     if n == 1
-      puts "#{i+1}. **Animals | #{card_slots[n]}**" 
+      puts "- **Animals | #{card_slots[n]}**" 
     else
-      puts "#{i+1}. Animals | #{card_slots[n]}"
+      puts "- Animals | #{card_slots[n]}"
     end
   end
   puts ""
