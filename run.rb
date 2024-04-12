@@ -25,7 +25,7 @@ MAPS = [
 BONUS_TILES = [
   "2 reputation",
   "x2 token",
-  "3 X tokens",
+  "3 **X** tokens",
   "Size 3 enclosure",
   "10 money",
   "Draw 3 cards",
@@ -67,11 +67,14 @@ end
 starting_hand = (ANIMALS.to_a + SPONSORS.to_a + CONSERVATION_PROJECTS.to_a).sample(8).sort
 scoring_cards = SCORING_CARDS.to_a.sample(2)
 base_projects = BASE_CPS.to_a.sample(4)
-actions = ACTIONS.shuffle
 map = (0..9).to_a.sample
 bonus_tiles = BONUS_TILES.sample(4)
+card_slots = (1..4).map { |n| [n, ACTIONS.shuffle.join(" | ")] }.to_h
 
-puts "[Map](bla.com)"
+#  Hi everyone! The Starting hand of the week is a popular post on r/TerraformingMarsGame, so decided to try it out over here. If this becomes popular, I'll make it a regular weekly thing. Any feedback and comments are appreciated!
+
+#puts "[Map](https://raw.githubusercontent.com/agentshowers/arknova/main/maps/#{map+1}.png)"
+puts "Map"
 puts "- #{MAPS[map]}"
 puts ""
 puts "[Starting hand](#{generate_link(starting_hand)})"
@@ -80,9 +83,6 @@ puts ""
 puts "[Scoring cards](#{generate_link(scoring_cards)})"
 puts "- #{generate_names(scoring_cards).join(", ")}"
 puts ""
-puts "Card slots"
-puts "- Animals | #{actions.join(" | ")}"
-puts ""
 puts "[Base projects](#{generate_link(base_projects)})"
 puts "- #{CARDS[id(base_projects[0])]}"
 puts "- #{CARDS[id(base_projects[1])]}"
@@ -90,11 +90,23 @@ puts "- #{CARDS[id(base_projects[2])]}"
 puts "- #{CARDS[id(base_projects[3])]} (4 players only)"
 puts ""
 puts "Conservation Bonus"
-puts "- 5 CP: #{bonus_tiles[0]} / #{bonus_tiles[1]}"
-puts "- 8 CP: #{bonus_tiles[2]} / #{bonus_tiles[3]}"
+puts "- **5 CP**: #{bonus_tiles[0]} / #{bonus_tiles[1]}"
+puts "- **8 CP**: #{bonus_tiles[2]} / #{bonus_tiles[3]}"
 puts ""
-puts "|Player|Order|"
-puts "|:-|:-|"
+
 (1..4).each do |player_count|
-  puts "|#{player_count}|#{ordinalize((1..player_count).to_a.sample)}|"
+  order = (1..player_count).to_a.sample
+  if player_count == 1
+    puts "Solo"
+  else
+    puts "#{player_count} players"
+  end
+  (1..player_count).to_a.shuffle.each_with_index do |n, i|
+    if n == 1
+      puts "#{i+1}. **Animals | #{card_slots[n]}**" 
+    else
+      puts "#{i+1}. Animals | #{card_slots[n]}"
+    end
+  end
+  puts ""
 end
