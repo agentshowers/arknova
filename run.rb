@@ -95,7 +95,7 @@ puts "- **5 CP**: #{bonus_tiles[0]} / #{bonus_tiles[1]}"
 puts "- **8 CP**: #{bonus_tiles[2]} / #{bonus_tiles[3]}"
 puts ""
 puts "---"
-puts
+puts ""
 puts "### Player order and card slots"
 puts ""
 (1..4).each do |player_count|
