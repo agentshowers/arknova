@@ -1,0 +1,9 @@
+name: Test script
+run-name: ${{ github.actor }} is testing script
+on: [workflow_dispatch, push]
+jobs:
+  test-ruby:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./script.sh
