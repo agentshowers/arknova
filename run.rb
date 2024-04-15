@@ -7,6 +7,7 @@ SPONSORS = 201..264
 CONSERVATION_PROJECTS = 113..132
 BASE_CPS = 101..112
 SCORING_CARDS = 1..11
+FOUR_CP_PROJECTS = [105] + (107..112).to_a # Australia and Europe + all animal projects
 ACTIONS = ["Association", "Cards", "Sponsors", "Build"]
 CARDS = JSON.parse(File.read("cards.json"))
 MAPS = [
@@ -85,9 +86,9 @@ puts "[Scoring cards](#{generate_link(scoring_cards)})"
 puts "- #{generate_names(scoring_cards).join(", ")}"
 puts ""
 puts "[Base projects](#{generate_link(base_projects)})"
-puts "- #{CARDS[id(base_projects[0])]}"
-puts "- #{CARDS[id(base_projects[1])]}"
-puts "- #{CARDS[id(base_projects[2])]}"
+puts "- #{CARDS[id(base_projects[0])]} (5cp blocked at 2 players)"
+puts "- #{CARDS[id(base_projects[1])]} (#{FOUR_CP_PROJECTS.include?(base_projects[1]) ? 4 : 3}cp blocked at 2 players)"
+puts "- #{CARDS[id(base_projects[2])]} (2cp blocked at 2 players)"
 puts "- #{CARDS[id(base_projects[3])]} (4 players only)"
 puts ""
 puts "Conservation Bonus"

@@ -1,8 +1,8 @@
-name: Test script
+name: Post new Starting Hand
 run-name: ${{ github.actor }} is testing script
 on: [workflow_dispatch, push]
 jobs:
-  test-ruby:
+  post-new-starting-hand:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
