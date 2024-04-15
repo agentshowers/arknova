@@ -3,11 +3,7 @@
 require 'nokogiri'
 require 'json'
 
-HTML_FILE = 'tmp/ark-nova.html'
-
-%x{ curl https://ssimeonoff.github.io/ark-nova > #{HTML_FILE} }
-
-html = open(HTML_FILE)
+html=%x{ curl https://ssimeonoff.github.io/ark-nova }
 doc = Nokogiri::HTML(html)
 
 cards = {}
