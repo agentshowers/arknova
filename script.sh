@@ -12,7 +12,7 @@ TOKEN=$(curl -X POST -A 'User agent' -d "grant_type=password&username=$REDDIT_US
 TEXT=$(./run.rb)
 
 curl -i -H "Authorization: Bearer $TOKEN" -A "User agent" -H "Content-Type: application/x-www-form-urlencoded" -X POST \
-  --data-urlencode "title=Testing again" \
+  --data-urlencode "title=Starting hand of the week" \
   --data-urlencode "kind=self" \
   --data-urlencode "sr=$SUBREDDIT" \
   --data-urlencode "resubmit=true" \

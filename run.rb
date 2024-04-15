@@ -72,8 +72,6 @@ map = (0..9).to_a.sample
 bonus_tiles = BONUS_TILES.sample(4)
 card_slots = (1..4).map { |n| [n, ACTIONS.shuffle.join(" | ")] }.to_h
 
-#  Hi everyone! The Starting hand of the week is a popular post on r/TerraformingMarsGame, so decided to try it out over here. If this becomes popular, I'll make it a regular weekly thing. Any feedback and comments are appreciated!
-# puts "---"
 puts "### Setup"
 puts ""
 puts "[Map](https://raw.githubusercontent.com/agentshowers/arknova/main/maps/#{map+1}.png)"
