@@ -1,0 +1,8 @@
+name: Test ruby
+run-name: ${{ github.actor }} is testing Ruby
+on: [workflow_dispatch, push]
+jobs:
+  test-ruby:
+    runs-on: ubuntu-latest
+    steps:
+      - run: ruby -v
