@@ -1,6 +1,13 @@
 name: Post new Starting Hand
 run-name: Post new Starting Hand
-on: [workflow_dispatch, push]
+on:
+  workflow_dispatch:
+    inputs:
+      subreddit:
+        description: 'The subreddit to post to'
+        required: true
+        default: 'test'
+        type: string
 jobs:
   post-new-starting-hand:
     runs-on: ubuntu-latest
@@ -12,4 +19,5 @@ jobs:
           REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          SUBREDDIT: ${{ inputs.subreddit }}
         run: ./script.sh
