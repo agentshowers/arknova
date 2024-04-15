@@ -1,5 +1,5 @@
 name: Post new Starting Hand
-run-name: ${{ github.actor }} is testing script
+run-name: Post new Starting Hand
 on: [workflow_dispatch, push]
 jobs:
   post-new-starting-hand:
