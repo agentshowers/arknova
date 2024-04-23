@@ -3,13 +3,12 @@ require_relative 'cards.rb'
 
 class CardDisplay
   def print
-    puts "[#{name}](#{link})"
-    print_names
-    puts ""
+    text = "[#{name}](#{link})\n"
+    text << print_names
   end
 
   def print_names
-    puts "- #{draw.map { |card| Cards.instance.get(card) }.join(", ")}"
+    "- #{draw.map { |card| Cards.instance.get(card) }.join(", ")}\n"
   end
 
   def draw
@@ -86,9 +85,10 @@ class BaseProjects < CardDisplay
   end
 
   def print_names
-    puts "- #{Cards.instance.get(draw[0])} (5cp blocked at 2 players)"
-    puts "- #{Cards.instance.get(draw[1])} (#{Cards::FOUR_CP_PROJECTS.include?(draw[1]) ? 4 : 3}cp blocked at 2 players)"
-    puts "- #{Cards.instance.get(draw[2])} (2cp blocked at 2 players)"
-    puts "- #{Cards.instance.get(draw[3])} (4 players only)"
+    text = ""
+    text << "- #{Cards.instance.get(draw[0])} (5cp blocked at 2 players)\n"
+    text << "- #{Cards.instance.get(draw[1])} (#{Cards::FOUR_CP_PROJECTS.include?(draw[1]) ? 4 : 3}cp blocked at 2 players)\n"
+    text << "- #{Cards.instance.get(draw[2])} (2cp blocked at 2 players)\n"
+    text << "- #{Cards.instance.get(draw[3])} (4 players only)\n"
   end
 end

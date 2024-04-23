@@ -8,8 +8,7 @@ if [[ -z "${SUBREDDIT}" ]];then
     SUBREDDIT=test
 fi
 
-echo "Generating text"
-TEXT=$(./run.rb)
+TEXT=$(cat post.md)
 
 echo "Getting token"
 TOKEN=$(

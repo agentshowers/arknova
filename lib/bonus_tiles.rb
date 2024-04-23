@@ -16,9 +16,9 @@ class BonusTiles
   end
 
   def print
-    puts "Conservation Bonus"
-    puts "- **5 CP**: #{@tiles[0]} / #{@tiles[1]}"
-    puts "- **8 CP**: #{@tiles[2]} / #{@tiles[3]}"
-    puts ""
+    text = "Conservation Bonus\n"
+    text << "- **5 CP**: #{@tiles[0]} / #{@tiles[1]}\n"
+    text << "- **8 CP**: #{@tiles[2]} / #{@tiles[3]}\n"
+    text
   end
 end

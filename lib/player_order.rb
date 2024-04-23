@@ -6,24 +6,24 @@ class PlayerOrder
   end
 
   def print
-    puts "### Player order and card slots"
-    puts ""
+    text = "### Player order and card slots\n\n"
     (1..4).each do |player_count|
       order = (1..player_count).to_a.shuffle
       if player_count == 1
-        puts "Solo"
+        text << "Solo\n"
       else
-        puts "#{player_count} players (#{ordinalize(order.index(1) + 1)})"
+        text << "#{player_count} players (#{ordinalize(order.index(1) + 1)})\n"
       end
       order.each_with_index do |n, i|
         if n == 1
-          puts "- **Animals | #{@card_slots[n]}**" 
+          text <<  "- **Animals | #{@card_slots[n]}**\n" 
         else
-          puts "- Animals | #{@card_slots[n]}"
+          text <<  "- Animals | #{@card_slots[n]}\n"
         end
       end
-      puts ""
+      text << "\n"
     end
+    text
   end
 
   def ordinalize(number)

@@ -17,8 +17,8 @@ class Map
   end
 
   def print
-    puts "[Map](https://raw.githubusercontent.com/agentshowers/arknova/main/maps/#{@map+1}.png)"
-    puts "- #{MAPS[@map]}"
-    puts ""
+    text = "[Map](https://raw.githubusercontent.com/agentshowers/arknova/main/maps/#{@map+1}.png)\n"
+    text << "- #{MAPS[@map]}\n"
+    text
   end
 end
