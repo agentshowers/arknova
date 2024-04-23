@@ -21,16 +21,16 @@ jobs:
       - run: bundle install
       - name: Generate post
         run: bundle exec ruby run.rb
-      # - name: Upload post text
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: post-md
-      #     path: post.md
-      - name: run script
-        env:
-          REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
-          REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
-          CLIENT_ID: ${{ secrets.CLIENT_ID }}
-          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-          SUBREDDIT: ${{ inputs.subreddit }}
-        run: ./script.sh
+      - name: Upload screenshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshot
+          path: screenshots/starting_hand.png
+      # - name: run script
+      #   env:
+      #     REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
+      #     REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
+      #     CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      #     CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+      #     SUBREDDIT: ${{ inputs.subreddit }}
+      #   run: ./script.sh

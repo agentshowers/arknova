@@ -6,6 +6,8 @@ require_relative 'lib/map.rb'
 require_relative 'lib/player_order.rb'
 require_relative 'lib/screenshot.rb'
 
+Screenshot.setup if ENV["GITHUB_RUN_ID"]
+
 starting_hand = StartingHand.new
 puts "Taking screenshot of starting hand"
 Screenshot.take(starting_hand.link, "starting_hand")
