@@ -1,4 +1,3 @@
-# require 'selenium-webdriver'
 require_relative 'cards.rb'
 
 class CardDisplay
@@ -23,15 +22,6 @@ class CardDisplay
     @link ||= begin
       "https://ssimeonoff.github.io/ark-nova#{draw.join}"
     end
-  end
-
-  def generate_screenshot
-    driver = Selenium::WebDriver.for :chrome
-    driver.navigate.to(link)
-    driver.execute_script(File.read("screenshot.js"))
-    driver.manage.window.full_screen
-    driver.save_screenshot("screenshotone.png")
-    driver.quit
   end
 
   def should_sort?
