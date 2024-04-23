@@ -12,12 +12,20 @@ jobs:
   post-new-starting-hand:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: run script
-        env:
-          REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
-          REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
-          CLIENT_ID: ${{ secrets.CLIENT_ID }}
-          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-          SUBREDDIT: ${{ inputs.subreddit }}
-        run: ./script.sh
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Generate post
+        run: ./run.rb > post.md
+      - name: Upload post text
+        uses: actions/upload-artifact@v4
+        with:
+          name: post-md
+          path: post.md
+      # - name: run script
+      #   env:
+      #     REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
+      #     REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
+      #     CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      #     CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+      #     SUBREDDIT: ${{ inputs.subreddit }}
+      #   run: ./script.sh
