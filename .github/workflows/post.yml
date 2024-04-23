@@ -14,10 +14,13 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - run: bundle install
       - name: Generate post
-        run: |
-          gem install selenium-webdriver
-          ./run.rb
+        run: ./run.rb
       # - name: Upload post text
       #   uses: actions/upload-artifact@v4
       #   with:
