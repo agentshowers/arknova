@@ -36,7 +36,7 @@ puts "Image at #{link}"
 
 puts "Generating text"
 
-if ENV["INTRO_MESSAGE"]
+if ENV["INTRO_MESSAGE"].to_s != ""
   text = "#{ENV["INTRO_MESSAGE"]}\n\n---\n\n"
 else
   text = ""
