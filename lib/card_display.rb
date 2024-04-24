@@ -41,6 +41,10 @@ class StartingHand < CardDisplay
   def size
     8
   end
+
+  def screenshot_dimensions
+    "1200,800"
+  end
 end
 
 class ScoringCards < CardDisplay
@@ -55,6 +59,10 @@ class ScoringCards < CardDisplay
   def size
     2
   end
+
+  def screenshot_dimensions
+    "800,400"
+  end
 end
 
 class BaseProjects < CardDisplay
@@ -68,6 +76,10 @@ class BaseProjects < CardDisplay
 
   def size
     4
+  end
+
+  def screenshot_dimensions
+    "1200,400"
   end
 
   def should_sort?

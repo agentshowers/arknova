@@ -25,7 +25,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: screenshot
-          path: screenshots/starting_hand.png
+          path: screenshots/
       # - name: run script
       #   env:
       #     REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
