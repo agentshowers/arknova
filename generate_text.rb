@@ -37,7 +37,7 @@ puts "Image at #{link}"
 puts "Generating text"
 
 if ENV["INTRO_MESSAGE"]
-  text = "#{ENV["INTRO_MESSAGE"]}\n---\n\n"
+  text = "#{ENV["INTRO_MESSAGE"]}\n\n---\n\n"
 else
   text = ""
 end
