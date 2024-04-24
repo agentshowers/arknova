@@ -13,6 +13,7 @@ else
   Dotenv.load
 end
 
+puts "imgur client is #{ENV["IMGUR_CLIENT_ID"]}"
 starting_hand = StartingHand.new
 puts "Taking screenshot of starting hand"
 starting_hand.screenshot

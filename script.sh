@@ -10,6 +10,9 @@ fi
 
 TEXT=$(cat post.md)
 
+echo "Reddit username"
+echo $REDDIT_USERNAME
+
 echo "Getting token"
 TOKEN=$(
   curl --silent --show-error --fail -X POST -A 'User agent' \
