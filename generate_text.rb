@@ -13,7 +13,6 @@ else
   Dotenv.load
 end
 
-puts "imgur client is #{ENV["IMGUR_CLIENT_ID"]}"
 starting_hand = StartingHand.new
 puts "Taking screenshot of starting hand"
 starting_hand.screenshot
@@ -37,7 +36,14 @@ puts "Image at #{link}"
 
 puts "Generating text"
 
-text = "### Setup\n\n"
+if ENV["INTRO_MESSAGE"]
+  text = ENV["INTRO_MESSAGE"]
+  text << "\n---\n\n"
+else
+  text = ""
+end
+
+text << "### Setup\n\n"
 text << Map.new.print
 text << "\n"
 text << starting_hand.print

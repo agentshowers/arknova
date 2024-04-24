@@ -8,6 +8,11 @@ on:
         required: true
         default: 'test'
         type: string
+      message:
+        description: 'Intro message before the post'
+        required: false
+        default: ''
+        type: string
 jobs:
   post-new-starting-hand:
     runs-on: ubuntu-latest
@@ -20,9 +25,10 @@ jobs:
           bundler-cache: true
       - run: bundle install
       - name: Generate post
-        run: bundle exec ruby run.rb
+        run: bundle exec ruby generate_text.rb
         env:
           IMGUR_CLIENT_ID: ${{ secrets.IMGUR_CLIENT_ID }}
+          INTRO_MESSAGE: ${{ inputs.message }}
       - name: Post to reddit
         env:
           REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
@@ -30,4 +36,4 @@ jobs:
           REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
           REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
           SUBREDDIT: ${{ inputs.subreddit }}
-        run: ./script.sh
+        run: ./post_to_reddit.sh
