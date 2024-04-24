@@ -10,6 +10,7 @@ class Screenshot
     options = Selenium::WebDriver::Chrome::Options.new
     options.add_argument("--headless")
     options.add_argument("--disable-gpu")
+    options.add_argument("--hide-scrollbars")
     options.add_argument("--window-size=#{object.screenshot_dimensions}")
 
     driver = Selenium::WebDriver.for :chrome, options: options
