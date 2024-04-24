@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     base64 (0.2.0)
+    dotenv (3.1.0)
     rexml (3.2.6)
     rubyzip (2.3.2)
     selenium-webdriver (4.19.0)
@@ -16,6 +17,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   selenium-webdriver
 
 RUBY VERSION

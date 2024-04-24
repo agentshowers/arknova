@@ -1,8 +1,13 @@
 require_relative 'cards.rb'
+require_relative 'screenshot.rb'
+require_relative 'upload.rb'
 
 class CardDisplay
+  include Screenshot
+  include Upload
+
   def print
-    text = "[#{name}](#{link})\n"
+    text = "[#{name}](#{link}) ([screenshot](#{@upload_link}))\n"
     text << print_names
   end
 
@@ -24,14 +29,11 @@ class CardDisplay
     end
   end
 
-  def should_sort?
-    true
-  end
 end
 
 class StartingHand < CardDisplay
   def name
-    "Starting hand"
+    "Starting Hand"
   end
 
   def cards
@@ -44,6 +46,10 @@ class StartingHand < CardDisplay
 
   def screenshot_dimensions
     "1200,800"
+  end
+
+  def should_sort?
+    true
   end
 end
 
@@ -62,6 +68,10 @@ class ScoringCards < CardDisplay
 
   def screenshot_dimensions
     "800,400"
+  end
+
+  def should_sort?
+    true
   end
 end
 

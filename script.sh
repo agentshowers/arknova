@@ -14,7 +14,7 @@ echo "Getting token"
 TOKEN=$(
   curl --silent --show-error --fail -X POST -A 'User agent' \
   -d "grant_type=password&username=$REDDIT_USERNAME&password=$REDDIT_PASSWORD" \
-  --user "$CLIENT_ID:$CLIENT_SECRET" https://www.reddit.com/api/v1/access_token \
+  --user "$REDDIT_CLIENT_ID:$REDDIT_CLIENT_SECRET" https://www.reddit.com/api/v1/access_token \
   | jq -r .access_token
 )
 

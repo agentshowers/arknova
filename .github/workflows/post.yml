@@ -21,16 +21,13 @@ jobs:
       - run: bundle install
       - name: Generate post
         run: bundle exec ruby run.rb
-      - name: Upload screenshot
-        uses: actions/upload-artifact@v4
-        with:
-          name: screenshot
-          path: screenshots/
-      # - name: run script
-      #   env:
-      #     REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
-      #     REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
-      #     CLIENT_ID: ${{ secrets.CLIENT_ID }}
-      #     CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-      #     SUBREDDIT: ${{ inputs.subreddit }}
-      #   run: ./script.sh
+        env:
+          IMGUR_CLIENT_ID: ${{ secrets.IMGUR_CLIENT_ID }}
+      - name: Post to reddit
+        env:
+          REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
+          REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          SUBREDDIT: ${{ inputs.subreddit }}
+        run: ./script.sh
