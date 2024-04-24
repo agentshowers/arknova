@@ -17,19 +17,22 @@ starting_hand = StartingHand.new
 puts "Taking screenshot of starting hand"
 starting_hand.screenshot
 puts "Uploading screenshot"
-starting_hand.upload
+link = starting_hand.upload
+puts "Image at #{link}"
 
 scoring_cards = ScoringCards.new
 puts "Taking screenshot of scoring cards"
 scoring_cards.screenshot
 puts "Uploading screenshot"
-scoring_cards.upload
+link = scoring_cards.upload
+puts "Image at #{link}"
 
 base_projects = BaseProjects.new
 puts "Taking screenshot of base projects"
 base_projects.screenshot
 puts "Uploading screenshot"
-base_projects.upload
+link = base_projects.upload
+puts "Image at #{link}"
 
 puts "Generating text"
 
@@ -45,5 +48,7 @@ text << "\n"
 text << BonusTiles.new.print
 text << "\n---\n\n"
 text << PlayerOrder.new.print
+
+puts text
 
 File.write("post.md", text)
