@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 if [[ -z "${GITHUB_RUN_ID}" ]];then
     source .env
 fi
@@ -17,6 +19,10 @@ TOKEN=$(
   --user "$REDDIT_CLIENT_ID:$REDDIT_CLIENT_SECRET" https://www.reddit.com/api/v1/access_token \
   | jq -r .access_token
 )
+
+if [[ -z "${TOKEN}" ]];then
+    exit 1
+fi
 
 echo "Posting to reddit"
 curl --silent --output /dev/null --show-error --fail -i \

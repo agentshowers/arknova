@@ -7,7 +7,7 @@ class CardDisplay
   include Upload
 
   def print
-    text = "[#{name}](#{link}) ([screenshot](#{@upload_link}))\n"
+    text = "[#{name}](#{link}) ([Screenshot](#{@upload_link}))\n"
     text << print_names
   end
 
