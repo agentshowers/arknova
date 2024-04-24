@@ -28,6 +28,7 @@ module Upload
     end
 
     if res.code != "200"
+      puts JSON.parse(res.body)
       raise UploadError.new(res.message)
     end
 
