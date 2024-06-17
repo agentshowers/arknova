@@ -4,10 +4,11 @@ set -e
 
 if [[ -z "${GITHUB_RUN_ID}" ]];then
     source .env
+    SUBREDDIT=test
 fi
 
 if [[ -z "${SUBREDDIT}" ]];then
-    SUBREDDIT=test
+    SUBREDDIT=ArkNova
 fi
 
 TEXT=$(cat post.md)

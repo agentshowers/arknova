@@ -1,12 +1,14 @@
 name: Post new Starting Hand
 run-name: Post new Starting Hand
 on:
+  schedule:
+    - cron: '0 19 * * SUN'
   workflow_dispatch:
     inputs:
       subreddit:
         description: 'The subreddit to post to'
         required: true
-        default: 'test'
+        default: 'ArkNova'
         type: string
       message:
         description: 'Intro message before the post'
