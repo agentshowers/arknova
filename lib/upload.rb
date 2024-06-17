@@ -2,15 +2,14 @@ require "net/http"
 require "json"
 
 module Upload
-  CLIENT_ID = ENV["IMGUR_CLIENT_ID"]
-
   class UploadError < StandardError
   end
   
   def upload
+    client_id = ENV["IMGUR_CLIENT_ID"]
     uri = URI("https://api.imgur.com/3/image")
     req = Net::HTTP::Post.new(uri)
-    req["Authorization"] = "Client-ID #{CLIENT_ID}"
+    req["Authorization"] = "Client-ID #{client_id}"
     req.set_form(
       [
         ["image", File.open("screenshots/#{name}.png")],
