@@ -11,6 +11,7 @@ module Screenshot
     options.add_argument("--disable-gpu")
     options.add_argument("--hide-scrollbars")
     options.add_argument("--window-size=#{screenshot_dimensions}")
+    options.add_argument("--headless=old")
 
     driver = Selenium::WebDriver.for :chrome, options: options
     driver.navigate.to(link)
