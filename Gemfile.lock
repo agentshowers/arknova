@@ -21,7 +21,7 @@ DEPENDENCIES
   selenium-webdriver
 
 RUBY VERSION
-   ruby 3.3.1p55
+   ruby 3.3.6p108
 
 BUNDLED WITH
    2.5.6
